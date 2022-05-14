@@ -1,0 +1,144 @@
+<nav class="navbar navbar-light " style=" background: linear-gradient(-45deg,#57cfb0,#2ab5d3);"> 
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Admin Dashboard</h1>
+        <div class="d-flex">
+            <button (click)="clickAddProduct()" style="border-radius:5px ; background: linear-gradient(-45deg,#04b10c,#2ab5d3);"  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
+            <button routerLink="/login" style="border-radius:5px ; background: linear-gradient(-45deg,#f14612,#e0508c);" class="btn-danger mx-4">Logout</button>
+            <button routerLink="/product" style="border-radius:5px ; background: linear-gradient(-45deg,#04b10c,#2ab5d3);" class="btn-success">Product Page</button>
+        </div>
+    </div>
+</nav>
+<!-- <table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Picture</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Product Price Rs.</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of productData">
+            <td style="width: 5%;">{{row.id}}</td>
+            <td style="width: 10%;">{{row.title}}</td>
+            <td><img style="width:150px" src="{{row.image}}" alt=""></td>
+            <td style="width: 25% ;">{{row.description}}</td>
+            <td style="width: 12%;">{{row.price}}</td>
+            <td>
+               <button (click)="onEdit(row)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button>
+               <button (click)=" deleteProduct(row)" class="btn btn-danger mx-2">Delete</button> 
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+
+
+
+
+
+<ng-container>
+
+  <div class="CartContainer">
+       <div class="Header">
+         <h3 class="Heading">Product Management</h3>
+         <!-- <h5 (click)="emptyCart()" class="Action">Remove all</h5> -->
+       </div>
+
+       <div class="Cart-Items" *ngFor="let row of productData">
+        <div class="mybtn">{{row.id}}</div>
+           <div class="image-box">
+             <img style="width: 120px; border-radius: 10px;" src="{{row.image}}"  />
+           </div>
+           <div class="about">
+             <h1 class="title">{{row.title}}</h1>
+           </div>
+           <div class="about">
+             <h1 style="line-height: 21px;" class="title">{{row.description}}</h1>
+           </div>
+         
+           <div class="prices">
+             <div class="amount">{{row.price}}</div>
+             <!-- <div  (click)="removeItem(item)" class="remove"><u>Remove</u></div> -->
+           </div>
+           <div class="counter">
+            <!-- <div class="count">{{row.quantity}}</div> -->
+             <div class="btn"> <button (click)="onEdit(row)" style="border-radius:30px ; background: linear-gradient(-45deg,#43ce4a,#2ab5d3);" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" >Edit</button></div>
+             <div class="btn"><button (click)=" deleteProduct(row)" style="border-radius:30px ; background: linear-gradient(-45deg,#d33b0d,#eb4389);" class="btn btn-danger mx-2">Delete</button></div>
+           </div>
+       </div>
+     <hr> 
+     <!-- <div class="checkout">
+     <div class="total">
+       <div>
+         <div class="Subtotal">Sub-Total</div>
+         <div class="items">{{product.total}}</div>
+       </div>
+       <div class="total-amount">{{grandTotal}}</div>
+     </div>
+       <button routerLink="/order" class="button">Checkout</button> 
+     <button routerLink="/product" class="button">Shop More</button>
+   </div> -->
+
+  </div>
+</ng-container>
+
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Product Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="formValue" >
+                <!-- <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Product Id</label>
+                  <input type="text" formControlName="productId" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div> -->
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Product Name</label>
+                  <input type="text" formControlName="productName" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Price</label>
+                  <input type="text" formControlName="productPrice" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Product Description</label>
+                  <input type="text" formControlName="productDescription" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Category</label>
+                  <input type="text" formControlName="productCategory" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Product Image Link/Url</label>
+                    <input type="text" formControlName="productImage" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  
+                 
+                <!-- <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button"  *ngIf="showAdd" (click)="postProductDetails()" class="btn btn-primary">Add Product</button>
+          <button type="button" *ngIf="showUpdate" (click)="updateProductDetails()" class="btn btn-primary">Update Product Details</button>
+        </div>
+      </div>
+    </div>
+  </div>

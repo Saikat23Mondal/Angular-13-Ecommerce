@@ -1,0 +1,47 @@
+<ng-container *ngIf="orderHtml">
+<div class='checkout'>
+  <div class='order'>
+    <h2>Checkout</h2>
+    <h5>Order</h5>
+    <ul class='order-list' >
+      <li *ngFor="let item of cartProduct ">
+		  <img style="width: 60px" src="{{item.image}}">
+		  <h4>{{item.title}}</h4>
+		  <h5>{{item.price}}</h5>
+		</li> 
+    </ul>
+	
+    <h5>Shipping</h5><h4>{{45}}</h4>
+    <h5 class='total'>Total</h5><h1>{{total}}</h1>
+  </div>
+  
+  <h2>Billing Details</h2>
+  <form [formGroup]="orderForm"  id='payment' class='payment'>
+    <div class='card-form'>
+        <p class='field'>
+        <input formControlName="fullName" type='text' id='cardnumber' name='cardnumber' placeholder='Customer Name' pattern='\d*' title='Card Number' />
+      </p>
+	  <p class='field'>
+        <input formControlName="phoneNumber" type='text' id='cardnumber' name='cardnumber' placeholder='Phone Number' pattern='\d*' title='Card Number' />
+      </p>
+	  <p class='field'>
+        <input formControlName="email" type='text' id='cardnumber' name='cardnumber' placeholder='Email' pattern='\d*' title='Card Number' />
+      </p>
+	  <p class='field'>
+        <input formControlName="userAddress" type='text' id='cardnumber' name='cardnumber' placeholder='Full Address' pattern='\d*' title='Card Number' />
+      </p>
+      <button style="bottom: -100px;" (click)="placeOrder()" class='button-cta' title='Confirm your purchase'><span>PURCHASE</span></button>
+    </div>
+</form>
+</div>
+</ng-container>
+
+<app-invoice *ngIf="billHtml" [billObj]="currentItem"></app-invoice>
+
+
+
+
+
+
+
+

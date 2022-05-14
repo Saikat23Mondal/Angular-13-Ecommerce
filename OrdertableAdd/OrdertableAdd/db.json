@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "productId": "Swbhjsdfcbsdfbhsdfhjsdnfsdjfhjsdf",
+      "productName": "asda",
+      "productImage": "https://m.media-amazon.com/images/I/616VM20+AzL._SX522_.jpg",
+      "productDescription": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "productPrice": "asd",
+      "id": 10
+    },
+    {
+      "productId": "SDFF",
+      "productName": "FSDFSD",
+      "productImage": "https://m.media-amazon.com/images/I/81XiVsEz6eL._AC_UY218_.jpg",
+      "productDescription": "SDAS",
+      "productPrice": "ASDDSAD",
+      "id": 12
+    },
+    {
+      "productId": "adsad",
+      "productName": "adasd",
+      "productImage": "ads",
+      "productDescription": "adsd",
+      "productPrice": "dasd",
+      "id": 13
+    }
+  ],
+  "signup": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
